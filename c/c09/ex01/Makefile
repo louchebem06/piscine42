@@ -34,5 +34,4 @@ clean:
 fclean:		clean
 			${RM} libft.a
 
-re:			fclean
-			all
+re:			fclean all
