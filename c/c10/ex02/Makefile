@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ft_display_file
-SRCS	= ft_display_file.c
+NAME	= ft_tail
+SRCS	= ft_tail.c
 OBJS	= ${SRCS:.c=.o}
 CC		= gcc
 CFLAGS  = -Wall -Wextra -Werror
@@ -26,6 +26,6 @@ clean:
 			${RM} ${OBJS}
 
 fclean:		clean
-			${RM} ft_display_file
+			${RM} ft_tail
 
 re:			fclean all

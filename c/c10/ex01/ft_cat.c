@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_cat.c.                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bledda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,18 +22,33 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_print_file(int ac, char **av)
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, ": ", ft_strlen(": "));
+}
+
+void	ft_print_file(char *av)
 {
 	int		fd;
 	char	buf[BUF_SIZE + 1];
 	int		i;
 
 	i = 0;
-	fd = open(av[ac - 1], O_RDONLY);
+	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
 		close(fd);
-		write(1, "Cannot read file.\n", ft_strlen("Cannot read file.\n"));
+		write(1, "cat: ", ft_strlen("cat: "));
+		ft_putstr(av);
+		write(1, "No such file or directory\n", 27);
 	}
 	else
 	{
@@ -49,13 +64,14 @@ void	ft_print_file(int ac, char **av)
 
 int		main(int ac, char **av)
 {
-	if (ac == 1)
-		write(1, "File name missing.\n", ft_strlen("File name missing.\n"));
-	else if (ac == 2)
-	{
-		ft_print_file(ac, av);
-	}
-	else
-		write(1, "Too many arguments.\n", ft_strlen("Too many arguments.\n"));
+	int i;
+
+	i = 1;
+	if (ac > 1)
+		while (i < ac)
+		{
+			ft_print_file(av[i]);
+			i++;
+		}
 	return (0);
 }
