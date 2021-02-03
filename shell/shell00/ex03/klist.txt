@@ -1,0 +1,6 @@
+Credentials cache: API:BCDFBF46-BCC1-42B4-BC6A-520E3B0B5C60
+        Principal: bledda@42NICE.FR
+
+  Issued                Expires               Principal
+Jan 13 07:19:21 2021  Jan 13 17:19:21 2021  krbtgt/42NICE.FR@42NICE.FR
+Jan 13 07:19:24 2021  Jan 13 17:19:21 2021  HTTP/student-storage.42nice.fr@42NICE.FR
