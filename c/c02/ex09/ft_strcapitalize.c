@@ -35,7 +35,8 @@ char	*ft_strcapitalize(char *str)
 	{
 		j = i - 1;
 		if ((i == 0) || str[j] <= 47 || (str[j] >= 123 && str[j] <= 126) ||
-			(str[j] >= 58 && str[j] <= 64) || (str[j] >= 91 && str[j] <= 96) || (str[j] == '\n'))
+			(str[j] >= 58 && str[j] <= 64) || (str[j] >= 91 && str[j] <= 96) ||
+			(str[j] == '\n'))
 		{
 			if (str[i] >= 97 && str[i] <= 122)
 				str[i] = str[i] - 32;
@@ -43,10 +44,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}
-#include <stdio.h>
-int main(int ac, char **av)
-{
-	char str[] = "\thello";
-	printf("%s", ft_strcapitalize(str));
 }
