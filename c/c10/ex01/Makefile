@@ -6,7 +6,7 @@ CFLAGS  = -Wall -Wextra -Werror
 RM		= rm -f
 
 ${NAME}:	
-			${CC} -o ${NAME} ${CFLAGS} ${SRCS} ft.h
+			${CC} ${CFLAGS} ${SRCS} -Ift.h -o ${NAME}
 
 all:		${NAME}
 
