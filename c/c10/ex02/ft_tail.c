@@ -12,11 +12,16 @@
 
 #include "ft.h"
 
-void	no_file_found(char *av)
+void	no_file_found(char **av, int section)
 {
+	int fd;
+
+	fd = open(av[section + 1], O_RDONLY);
 	ft_putstr("tail: ");
-	ft_putstr(av);
+	ft_putstr(av[section]);
 	ft_putstr(": No such file or directory\n");
+	if (fd != -1)
+		ft_putstr("\n");
 }
 
 void	print_file(char *buf, int octes)
@@ -40,25 +45,22 @@ void	print_file(char *buf, int octes)
 	}
 }
 
-void	ft_print_file(char *av, int octes, int title)
+void	ft_print_file(char **av, int section, int octes, int title)
 {
 	int		fd;
 	char	buf[BUF_SIZE + 1];
 	int		i;
 
 	i = 0;
-	fd = open(av, O_RDONLY);
+	fd = open(av[section], O_RDONLY);
 	if (fd == -1)
-	{
-		close(fd);
-		no_file_found(av);
-	}
+		no_file_found(av, section);
 	else
 	{
 		if (title == 1)
 		{
 			ft_putstr("==> ");
-			ft_putstr(&av[i]);
+			ft_putstr(&av[section][i]);
 			ft_putstr(" <==\n");
 		}
 		buf[read(fd, buf, BUF_SIZE)] = '\0';
@@ -104,9 +106,9 @@ int		main(int ac, char **av)
 			i = 2;
 			while (++i < ac)
 				if (ac > 4)
-					ft_print_file(av[i], ft_atoi(av[2]), 1);
+					ft_print_file(av, i, ft_atoi(av[2]), 1);
 				else
-					ft_print_file(av[i], ft_atoi(av[2]), 0);
+					ft_print_file(av, i, ft_atoi(av[2]), 0);
 		}
 	}
 	return (0);

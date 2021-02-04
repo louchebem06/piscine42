@@ -9,7 +9,7 @@
 /*   Updated: 2021/01/22 09:24:34 by bledda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//Manque Atoi = 0 \v au lieu de \b et le space
+
 int	ft_atoi(char *str)
 {
 	int atoi;
@@ -18,11 +18,10 @@ int	ft_atoi(char *str)
 
 	i = 0;
 	symbole = 1;
-	while ((str[i] == '\f') ||
-			(str[i] == '\n') ||
-			(str[i] == '\t') ||
-			(str[i] == '\r') ||
-			(str[i] == '\b'))
+	atoi = 0;
+	while ((str[i] == '\f') || (str[i] == '\n') ||
+			(str[i] == '\t') || (str[i] == '\r') ||
+			(str[i] == '\v') || (str[i] == ' '))
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
