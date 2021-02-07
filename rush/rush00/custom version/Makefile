@@ -6,7 +6,7 @@
 #    By: bledda <bledda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 16:37:11 by bledda            #+#    #+#              #
-#    Updated: 2021/02/07 17:35:00 by bledda           ###   ########.fr        #
+#    Updated: 2021/02/07 17:59:38 by bledda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM		= rm -f
 
 start:
 			@echo "Please input rush file"
-			@echo "rush00, rush01, rush02, rush02, rush03, rush04"
+			@echo "rush00, rush01, rush02, rush03, rush04"
 			@echo "Exemple : make rush02"
 			@echo "Exe name file is : rush00"
 
