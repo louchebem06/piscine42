@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabenet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: bledda <bledda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 09:40:52 by sabenet           #+#    #+#             */
-/*   Updated: 2021/01/20 10:37:22 by bledda           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:20:01 by bledda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+#include "ft.h"
 
-int		main(void)
+void	ft_putchar(char c)
 {
-	rush(55, 15);
-	return (0);
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 }
